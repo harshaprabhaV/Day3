@@ -1,0 +1,80 @@
+Folder Structure (Important Folders)
+ my-tailwind-app/
+├── app/                 # App directory (used instead of pages/)
+│   ├── layout.js        # Global layout for all pages
+│   └── page.js          # Homepage (like index.js)
+├── components/          # Your custom reusable components
+│   └── Card.js
+├── styles/
+│   └── globals.css      # Tailwind CSS entry point
+├── tailwind.config.js   # Tailwind config
+├── postcss.config.js    # PostCSS config
+└── ...
+
+1.Tailwind CSS Setup:
+  Install Tailwind CSS
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+
+tailwind.config.js:
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+styles/globals.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+globals.css in app/layout.js:
+import './globals.css'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
+
+2.Learn Basic Tailwind Utility Classes:
+Category	        Examples
+Layout	     flex, grid, items-center, gap
+Spacing	     p-4, m-2, mt-8, gap-6
+Typography	 text-xl, font-bold, text-center
+Colors	     bg-blue-500, text-white, hover:
+Border	     rounded-lg, border, shadow-lg
+Explore more at 👉 https://tailwindcss.com/docs
+
+3.Style components using Tailwind CSS:
+components/Card.js
+export default function Card({ title, description }) {
+  return (
+    <div className="bg-white shadow-md rounded-lg p-6 max-w-sm">
+      <h2 className="text-xl font-bold mb-2 text-gray-800">{title}</h2>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  )
+}
+
+app/page.js
+import Card from '../components/Card'
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-gray-100 p-8">
+      <Card
+        title="Tailwind CSS"
+        description="Utility-first styling made easy in Next.js!"
+      />
+    </main>
+  )
+}
