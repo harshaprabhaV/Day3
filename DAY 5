@@ -1,0 +1,108 @@
+export default function Home() {
+  const projects = [
+    {
+      title: "Bitcoin Price Prediction",
+      description:
+        "Used ARIMA, LSTM, and Prophet models to predict Bitcoin prices using historical data and market sentiment.",
+    },
+    {
+      title: "NoteSnap – Notes Web App",
+      description:
+        "Fullstack web app to create, edit, and manage notes using HTML, CSS, JavaScript, Node.js, and Express.",
+    },
+    {
+      title: "FoodFeedback – Review App",
+      description:
+        "Restaurant review app using vanilla JS frontend and Node.js backend for submitting and retrieving reviews.",
+    },
+  ];
+
+  const skills = [
+    "Java",
+    "C",
+    "HTML",
+    "CSS",
+    "MySQL",
+    "Leadership",
+    "Teamwork",
+    "Communication",
+  ];
+
+  return (
+    <div className="font-sans">
+      {/* Header */}
+      <header className="bg-white shadow-md sticky top-0 z-50">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold text-indigo-700">Lavanya S</h1>
+          <nav className="space-x-4 text-sm text-gray-600">
+            <a href="#about" className="hover:text-indigo-500">About</a>
+            <a href="#projects" className="hover:text-indigo-500">Projects</a>
+            <a href="#skills" className="hover:text-indigo-500">Skills</a>
+            <a href="#contact" className="hover:text-indigo-500">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="bg-indigo-100 text-center py-20 px-6">
+        <h2 className="text-4xl font-bold text-indigo-800 mb-4">Hello, I'm Lavanya 👩‍💻</h2>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          IT student with interests in cybersecurity, web development, and data science. Passionate about applying academic knowledge in real-world projects.
+        </p>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-16 px-6 max-w-4xl mx-auto">
+        <h3 className="text-2xl font-semibold text-indigo-700 mb-4">About Me</h3>
+        <p className="text-gray-700 text-justify leading-relaxed">
+          I'm currently pursuing a B.Tech in Information Technology at St. Joseph's College of Engineering with a CGPA of 8.65. 
+          I have hands-on experience with fullstack web apps and machine learning models. I’ve completed cybersecurity internships where I worked on threat analysis and network security.
+        </p>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="bg-gray-50 py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-semibold text-indigo-700 mb-6">Projects</h3>
+          <div className="grid gap-6">
+            {projects.map((project, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+                <h4 className="text-xl font-bold text-indigo-600 mb-2">{project.title}</h4>
+                <p className="text-gray-700">{project.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="py-16 px-6 max-w-4xl mx-auto">
+        <h3 className="text-2xl font-semibold text-indigo-700 mb-6">Skills</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {skills.map((skill, idx) => (
+            <div key={idx} className="bg-indigo-50 text-center py-3 rounded shadow text-gray-800 font-medium">
+              {skill}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-16 px-6 max-w-4xl mx-auto">
+        <h3 className="text-2xl font-semibold text-indigo-700 mb-4">Contact</h3>
+        <p className="text-gray-700 mb-2">📧 <a href="mailto:lavanyaengineer2004@gmail.com" className="text-indigo-600">lavanyaengineer2004@gmail.com</a></p>
+        <p className="text-gray-700 mb-2">📱 6369296391</p>
+        <p className="text-gray-700">
+          🌐 
+          <a href="https://linkedin.com/in/lavanya-s-79133725a" className="ml-1 text-indigo-600" target="_blank">LinkedIn</a> | 
+          <a href="https://github.com/lavanyaselvakumar" className="ml-1 text-indigo-600" target="_blank">GitHub</a>
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white text-center py-4">
+        © {new Date().getFullYear()} Lavanya S. All rights reserved.
+      </footer>
+    </div>
+  );
+}
